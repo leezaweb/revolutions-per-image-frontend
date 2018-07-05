@@ -1,7 +1,7 @@
 let search = false;
 let liked;
 let tapInstance;
-history.pushState({}, "", "/");
+// history.pushState({}, "", "/");
 
 document.addEventListener("DOMContentLoaded", () => {
   tapInstance = M.TapTarget.init(document.querySelectorAll(".tap-target"))[0];
