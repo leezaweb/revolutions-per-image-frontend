@@ -37,9 +37,9 @@ class Album {
 
   render() {
     // debugger;
-    let clicked = JSON.parse(localStorage.getItem("liked")).includes(
-      this.id.toString()
-    );
+    let clicked = localStorage.getItem("liked")
+      ? JSON.parse(localStorage.getItem("liked")).includes(this.id.toString())
+      : false;
     let likeHTML = !clicked
       ? `<span class="heart" data-id="${this.id}" class="like">💜</span>like it`
       : ``;
@@ -94,7 +94,8 @@ Album.fetched = [];
 Album.page = [];
 Album.concat = [];
 Album.updateLikes = id => {
-  const albumJson = "http://revolutions-image-backend.herokuapp.com/api/v1/albums";
+  const albumJson =
+    "http://revolutions-image-backend.herokuapp.com/api/v1/albums";
   fetch(`${albumJson}/${id}`, {
     body: JSON.stringify(id),
     headers: {
@@ -120,7 +121,8 @@ Album.makeAlbum = album => {
 };
 
 Album.deleteIt = () => {
-  const albumJson = "http://revolutions-image-backend.herokuapp.com/api/v1/albums";
+  const albumJson =
+    "http://revolutions-image-backend.herokuapp.com/api/v1/albums";
   document.querySelector("article").addEventListener("click", function(e) {
     if (e.target.className.includes("delete")) {
       e.target.parentNode.parentNode.remove();
@@ -139,7 +141,9 @@ Album.deleteIt = () => {
 
 Album.searchAlbums = query => {
   let name = query;
-  fetch(`http://revolutions-image-backend.herokuapp.com/api/v1/albums/search?name=${name}`)
+  fetch(
+    `http://revolutions-image-backend.herokuapp.com/api/v1/albums/search?name=${name}`
+  )
     .then(resp => resp.json())
     .then(json => {
       let filteredAlbums = [];
