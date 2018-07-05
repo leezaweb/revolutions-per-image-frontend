@@ -221,7 +221,7 @@ function clickIt(e) {
       genres: e.target.dataset.genres
     };
 
-    let promise = fetch("http://localhost:3003/api/v1/albums", {
+    let promise = fetch("http://revolutions-image-backend.herokuapp.com/api/v1/albums", {
       body: JSON.stringify(data),
       method: "POST",
       headers: {
@@ -319,7 +319,7 @@ function reRender(arg) {
     M.Tooltip.init(document.querySelectorAll(".tooltipped"), {});
   } else if (!isNaN(parseInt(arg)) || !arg) {
     document.querySelector(".progress-spinner").style.display = "block";
-    fetch(`http://localhost:3003/api/v1/albums/?page=${arg}`)
+    fetch(`http://revolutions-image-backend.herokuapp.com/api/v1/albums/?page=${arg}`)
       .then(resp => resp.json())
       .then(json => {
         let theseAlbums = json.map(album => {
@@ -331,7 +331,7 @@ function reRender(arg) {
   } else if (typeof arg === "string") {
     document.querySelector(".progress-spinner").style.display = "block";
     // debugger;
-    fetch(`http://localhost:3003/api/v1/albums/?sort=${arg}`)
+    fetch(`http://revolutions-image-backend.herokuapp.com/api/v1/albums/?sort=${arg}`)
       .then(resp => resp.json())
       .then(json => {
         let theseAlbums = json.map(album => {
@@ -370,7 +370,7 @@ function checkCount() {
 }
 
 function addPager(arg = 1) {
-  fetch("http://localhost:3003/api/v1/albums/count")
+  fetch("http://revolutions-image-backend.herokuapp.com/api/v1/albums/count")
     .then(resp => resp.json())
     .then(json => {
       let pages = Math.ceil(json.count / 20 - 1);

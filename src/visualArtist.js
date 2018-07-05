@@ -18,7 +18,7 @@ class VisualArtist {
 
 VisualArtist.all = [];
 VisualArtist.renderArtists = () => {
-  fetch("http://localhost:3003/api/v1/visual_artists/names")
+  fetch("http://revolutions-image-backend.herokuapp.com/api/v1/visual_artists/names")
     .then(resp => resp.json())
     .then(json => {
       document.getElementById("filter").innerHTML = json
@@ -81,7 +81,7 @@ ${thisArtist.detail()}
 
 VisualArtist.filterAlbums = query => {
   let name = query;
-  fetch(`http://localhost:3003/api/v1/visual_artists/filter?name=${name}`)
+  fetch(`http://revolutions-image-backend.herokuapp.com/api/v1/visual_artists/filter?name=${name}`)
     .then(resp => resp.json())
     .then(json => {
       let filteredAlbums = [];

@@ -11,7 +11,7 @@ class Genre {
 Genre.all = [];
 
 Genre.renderChips = () => {
-  fetch("http://localhost:3003/api/v1/genres")
+  fetch("http://revolutions-image-backend.herokuapp.com/api/v1/genres")
     .then(resp => resp.json())
     .then(json => {
       let chips = json
@@ -28,7 +28,7 @@ Genre.renderChips = () => {
 Genre.filterAlbums = clicked => {
   document.querySelector(".progress-spinner").style.display = "block";
   let ids = clicked.join(",");
-  fetch(`http://localhost:3003/api/v1/genres/filter?ids=${ids}`)
+  fetch(`http://revolutions-image-backend.herokuapp.com/api/v1/genres/filter?ids=${ids}`)
     .then(resp => resp.json())
     .then(json => {
       let filteredAlbums = [];
