@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Art of Music</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script src="src/index.js" charset="utf-8"></script>
+  <script src="src/genre.js" charset="utf-8"></script>
+  <script src="src/album.js" charset="utf-8"></script>
+  <script src="src/visualArtist.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="row">
+        <div class="col l4 s12 logo">
+          <h1><a href="">Art of Music</a></h1>
+        </div>
+        <form class="col l4 s6" id="searchForm">
+          <div class="input-field">
+            <i class="material-icons prefix">library_music</i>
+            <input id="search" name="search" type="text" placeholder="search by musician or album" />
+          </div>
+          <input type="submit" value="search" style="display:none" />
+        </form>
+        <form class="col l4 s6" id="filterForm">
+          <div class="input-field">
+            <i class="material-icons prefix">brush</i>
+            <input list="filter" name="filter" id="autocomplete-input" class="autocomplete" placeholder="filter by cover artist">
+            <datalist id="filter">
+        </datalist>
+          </div>
+          <input type="submit" value="search" style="display:none" />
+        </form>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+    <div class="row">
+      <section class="col l3 s12">
+        <div id="chip-container" class="col l3 s12">
+          <div id="chips" class="chips-initial input-field">
+            <div id="sort">
+              <div tabindex="0" class="chip refresh-sort"><i class="material-icons">refresh</i> Reset</div>
+              <div tabindex="0" class="chip year-sort"><i class="material-icons">date_range</i> Sort by Year</div>
+              <div tabindex="0" class="chip like-sort"><i class="material-icons">favorite</i> Sort by Likes</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="col l1 s1">
+      </div>
+      <div class="col l8 s12">
+        <div class="progress-spinner">
+          <div class="preloader-wrapper big active">
+      <div class="spinner-layer spinner-blue">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-red">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-yellow">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-green">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+        </div>
+        <article>
+        </article>
+        <div class="pager">
+
+        </div>
+      </div>
+  </main>
+  <div id="modal1" class="modal z-depth-5">
+    <i class="close material-icons">close</i>
+    <div class="navigate">
+      <i class="chevron-left material-icons">chevron_left</i>
+      <i class="chevron-right material-icons">chevron_right</i>
+    </div>
+    <div class="container">
+    </div>
+  </div>
+  <div class="discover-it">
+    <a id="menu" class="pulse waves-effect waves-light btn btn-floating"><i class="discovery material-icons">person_add</i></a>
+    <div class="tap-target" data-target="menu">
+      <div class="tap-target-content">
+
+        <form class="add-artist" id="addForm">
+          <h4>Add an Artist</h4>
+          <div class="input-field">
+            <i class="material-icons prefix">person_add</i>
+            <input id="add" name="add" type="text" placeholder="type visual artist's name" />
+            <button class="btn waves-effect waves-light" type="submit" name="action">Search
+                <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
