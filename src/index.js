@@ -1,6 +1,7 @@
 let search = false;
 let liked;
 let tapInstance;
+history.pushState({}, "", "/");
 
 document.addEventListener("DOMContentLoaded", () => {
   tapInstance = M.TapTarget.init(document.querySelectorAll(".tap-target"))[0];
@@ -221,14 +222,17 @@ function clickIt(e) {
       genres: e.target.dataset.genres
     };
 
-    let promise = fetch("http://revolutions-image-backend.herokuapp.com/api/v1/albums", {
-      body: JSON.stringify(data),
-      method: "POST",
-      headers: {
-        "user-agent": "Mozilla/4.0 MDN Example",
-        "content-type": "application/json"
+    let promise = fetch(
+      "http://revolutions-image-backend.herokuapp.com/api/v1/albums",
+      {
+        body: JSON.stringify(data),
+        method: "POST",
+        headers: {
+          "user-agent": "Mozilla/4.0 MDN Example",
+          "content-type": "application/json"
+        }
       }
-    });
+    );
 
     Promise.resolve(promise).then(function() {
       VisualArtist.filterAlbums(e.target.dataset.artistName);
@@ -319,7 +323,9 @@ function reRender(arg) {
     M.Tooltip.init(document.querySelectorAll(".tooltipped"), {});
   } else if (!isNaN(parseInt(arg)) || !arg) {
     document.querySelector(".progress-spinner").style.display = "block";
-    fetch(`http://revolutions-image-backend.herokuapp.com/api/v1/albums/?page=${arg}`)
+    fetch(
+      `http://revolutions-image-backend.herokuapp.com/api/v1/albums/?page=${arg}`
+    )
       .then(resp => resp.json())
       .then(json => {
         let theseAlbums = json.map(album => {
@@ -331,7 +337,9 @@ function reRender(arg) {
   } else if (typeof arg === "string") {
     document.querySelector(".progress-spinner").style.display = "block";
     // debugger;
-    fetch(`http://revolutions-image-backend.herokuapp.com/api/v1/albums/?sort=${arg}`)
+    fetch(
+      `http://revolutions-image-backend.herokuapp.com/api/v1/albums/?sort=${arg}`
+    )
       .then(resp => resp.json())
       .then(json => {
         let theseAlbums = json.map(album => {
