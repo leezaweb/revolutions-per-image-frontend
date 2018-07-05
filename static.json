@@ -1,3 +1,7 @@
 {
-  "clean_urls": true
+  "clean_urls": true,
+  "routes": {
+    "/*.html": "index.html",
+    "/route/**": "bar/baz.html"
+  }
 }
