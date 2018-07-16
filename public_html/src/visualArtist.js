@@ -56,7 +56,6 @@ ${thisArtist.detail()}
 <ul>`;
 
   document.querySelector(".modal").style.display = "block";
-  document.querySelector(".modal-overlay").style.display = "block";
 
   let currentIndex = Album.page.indexOf(
     Album.page.find(album => {
