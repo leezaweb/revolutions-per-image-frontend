@@ -18,7 +18,9 @@ class VisualArtist {
 
 VisualArtist.all = [];
 VisualArtist.renderArtists = () => {
-  fetch("http://revolutions-image-backend.herokuapp.com/api/v1/visual_artists/names")
+  fetch(
+    "http://revolutions-image-backend.herokuapp.com/api/v1/visual_artists/names"
+  )
     .then(resp => resp.json())
     .then(json => {
       document.getElementById("filter").innerHTML = json
@@ -53,6 +55,9 @@ VisualArtist.domDetail = (albumId, vaId, src) => {
 ${thisArtist.detail()}
 <ul>`;
 
+  document.querySelector(".modal").style.display = "block";
+  document.querySelector(".modal-overlay").style.display = "block";
+
   let currentIndex = Album.page.indexOf(
     Album.page.find(album => {
       return album.id === parseInt(albumId);
@@ -81,7 +86,9 @@ ${thisArtist.detail()}
 
 VisualArtist.filterAlbums = query => {
   let name = query;
-  fetch(`http://revolutions-image-backend.herokuapp.com/api/v1/visual_artists/filter?name=${name}`)
+  fetch(
+    `http://revolutions-image-backend.herokuapp.com/api/v1/visual_artists/filter?name=${name}`
+  )
     .then(resp => resp.json())
     .then(json => {
       let filteredAlbums = [];
