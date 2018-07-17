@@ -283,6 +283,7 @@ function navigate(e, index) {
   } else if (e.target.className.includes("close")) {
     document.querySelector(".modal").style.display = "none";
     document.querySelector(".modal-overlay").style.display = "none";
+    document.querySelector("body").style.overflow = "unset";
   }
 }
 
