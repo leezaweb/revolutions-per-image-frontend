@@ -52,12 +52,12 @@ class Album {
     }' class="image modal-trigger" data-id="${this.id}" data-artist="${
       this.visual_artist.id
     }" data-target="modal1" ></a></div>
-          <!--<div class="artist">${this.artist}</div>
+          <div class="artist">${this.artist}</div>
           <div class="title">${this.title}</div>
           <div class="year">${this.year}</div>
           <div><button class="delete" data-id="${
             this.id
-          }">delete</button></div>//-->
+          }">delete</button></div>
 
           <div class="like-it">${likeHTML}<br><span class="likes">${parseInt(
       this.likes
